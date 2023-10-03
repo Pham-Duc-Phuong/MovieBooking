@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .text-comment {
+        @apply text-white rounded-6 px-10 text-center font-500 w-[100px]
+    }
+    .text-lichchieu {
+        @apply text-black rounded-6 text-center font-500 border-[1px] border-black hover:text-white hover:bg-green-500 transition-all py-6 px-6 hover:border-green-500
+    }
+    .btn-detail{
+        @apply !text-white !font-500 !bg-green-600 hover:!bg-green-700 hover:!border-green-700
+    }
+    .btn-booking{
+        @apply !text-white !font-500 !bg-red-600 hover:!bg-red-700 hover:!border-red-700
+    }
+    .btn-back{
+        @apply !text-white !font-500 !bg-blue-300 hover:!bg-blue-400 hover:!border-blue-400
+    }
+    .tr-table{
+        @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700
+    }
+    .th-table{
+        @apply px-6 py-4 pr-7 font-medium text-gray-900 whitespace-nowrap dark:text-white
+    }
+    .detailShow{
+       @apply grid p-20 bg-white border border-gray-200 rounded-lg shadow lg:grid-cols-detailMovie md:grid-cols-1 
+    }
+    .back-list{
+        @apply inline-flex cursor-pointer items-center mr-28 text-[18px] font-medium text-center text-black hover:underline focus:ring-4 focus:outline-none focus:ring-red-300
+    }
+    .input-search{
+        @apply block w-full p-4 pl-10 py-10 rounded-l-lg text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent focus:ring-opacity-50
+    }
+    .btn-search{
+        @apply text-white text-20 p-6 px-14 rounded-r-lg bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50
+    }
+    .ghe{
+        @apply border md:h-[40px] md:w-[40px] md:text-[15px] md:rounded-lg flex justify-center items-center text-center rounded-md sm:h-[30px] sm:w-[30px] sm:text-[13px] sm:rounded-[4px] phone:text-[9px] phone:h-[20px] phone:w-[20px] phone:rounded-[3px]
+    }
+    .detailAtBooking{
+        @apply text-gray-500 border-b
+    }
+    .th-atBooking {
+        @apply px-6 pr-6 font-medium text-gray-900 whitespace-nowrap dark:text-white
+    }
+}

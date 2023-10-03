@@ -1,0 +1,6 @@
+export * from './QuanLyNguoiDung'
+export * from './QuanLyPhim'
+export * from './QuanLyDatVe'
+export * from './QuanLyRap'
+export * from './QuanLyLichChieu'
+export * from './QuanLyLichChieuTheoPhim'
