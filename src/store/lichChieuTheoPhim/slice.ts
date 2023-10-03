@@ -3,7 +3,7 @@ import { ThongTinLichChieuPhim, HeThongRapChieu, CumRapChieu, ThongTinRap } from
 import { getLichChieuTheoPhimListThunk } from ".";
 
 type quanLyLichChieuInitialState = {
-    ThongTinLichChieuTheoPhim?: ThongTinLichChieuPhim<HeThongRapChieu<CumRapChieu<ThongTinRap[]>[]>[]>[]
+    ThongTinLichChieuTheoPhim?: ThongTinLichChieuPhim<HeThongRapChieu<CumRapChieu<ThongTinRap[]>[]>[]>
 }
 const initialState:quanLyLichChieuInitialState = {}
 

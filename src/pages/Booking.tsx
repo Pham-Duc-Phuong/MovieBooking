@@ -1,4 +1,4 @@
-import { BookingTemplate } from "components/templates/Booking/BookingTemplate"
+import { BookingTemplate } from "components"
 
 
 

@@ -3,7 +3,7 @@ import qs from 'qs'
 type queryParams = Record<string, string>;
 type setQueryParams = (name: Record<string, string>) => void
 export const useQueryParams = ():[queryParams, setQueryParams] => {
-    const [searchParams, setsearchParams] = useSearchParams()
+    const [searchParams] = useSearchParams()
     const location = useLocation()
     const navigate = useNavigate()
     const queryParams = Object.fromEntries(searchParams)

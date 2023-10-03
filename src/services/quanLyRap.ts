@@ -8,5 +8,5 @@ const api = apiInstance({
 export const quanLyRapServices = {
     getTheaterList: () => api.get<ApiResponse<Theater[]>>('/LayThongTinHeThongRap'),
     getLichChieuList: (query = '') => api.get<ApiResponse<ThongTinLichChieuHeThongRap<CumRap<danhSachPhimChieu<LichChieuTheoPhim[]>[]>[]>[]>>(`/LayThongTinLichChieuHeThongRap${query}`),
-    getLichChieuTheoPhimList: (query = 'aaa') => api.get<ApiResponse<ThongTinLichChieuPhim<HeThongRapChieu<CumRapChieu<ThongTinRap[]>[]>[]>[]>>(`/LayThongTinLichChieuPhim${query}`)
+    getLichChieuTheoPhimList: (query = 'aaa') => api.get<ApiResponse<ThongTinLichChieuPhim<HeThongRapChieu<CumRapChieu<ThongTinRap[]>[]>[]>>>(`/LayThongTinLichChieuPhim${query}`)
 }
