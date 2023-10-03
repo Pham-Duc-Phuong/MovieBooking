@@ -17,16 +17,16 @@ export type HeThongRapChieu<B> = {
     maHeThongRap: string
     tenHeThongRap: string
     logo: string
-    lstCumRap: B
+    cumRapChieu: B
 }
-export type CumRapChieu<C> = {
+export type lstCumRap<C> = {
     maCumRap: string
     tenCumRap: string
     hinhAnh: string
     diaChi: string
-    lstLichChieuPhim: C
+    lichChieuPhim: C
 }
-export type ThongTinRap = {
+export type lstLichChieuPhim = {
     maLichChieu: number
     maRap: string
     tenRap: string

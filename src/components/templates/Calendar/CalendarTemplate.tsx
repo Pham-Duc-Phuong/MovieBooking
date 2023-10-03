@@ -14,6 +14,7 @@ export const CalendarTemplate = () => {
   const { accessToken } = useAuth()
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+  const heThongRapChieu = ThongTinLichChieuTheoPhim?.heThongRapChieu;
   useEffect(() => {
     dispatch(getLichChieuTheoPhimListThunk(params.maPhim))
     dispatch(getTheaterListThunk());
@@ -24,7 +25,7 @@ export const CalendarTemplate = () => {
         centered={true}
         tabPosition="top"
         items={
-          ThongTinLichChieuTheoPhim?.heThongRapChieu?.map(a => {
+          heThongRapChieu?.map(a => {
             return {
               label:
                 <div className="flex flex-col items-center mx-[30px]">
@@ -37,7 +38,7 @@ export const CalendarTemplate = () => {
                 className="overflow-y-auto h-[600px]"
                 tabPosition="left"
                 items={
-                  a?.lstCumRap?.map(b => {
+                  a?.cumRapChieu?.map(b => {
                     return {
                       label:
                         <div className="flex items-center ">
@@ -49,7 +50,7 @@ export const CalendarTemplate = () => {
                         </div>,
                       key: `${b.maCumRap}`,
                       children: <div key={b.maCumRap}>
-                        <div key={b.maCumRap} className="mb-24">
+                        <div key={ThongTinLichChieuTheoPhim.maPhim} className="mb-24">
                           <div className="flex">
                             <div className="h-[300px]">
                               <img style={{ width: 200, paddingRight: 10 }} src={b?.hinhAnh} alt="" />
@@ -57,7 +58,7 @@ export const CalendarTemplate = () => {
                             <div className="flex flex-col items-start">
                               <div className="flex mb-10 items-start">
                                 <div className="mr-10">
-                                  {ThongTinLichChieuTheoPhim?.dangChieu ? <p className="text-comment bg-red-500 mb-6">Đang Chiếu</p> : <p className="text-comment bg-green-500 mb-6">Sắp Chiếu</p>}
+                                  {ThongTinLichChieuTheoPhim.dangChieu ? <p className="text-comment bg-red-500 mb-6">Đang Chiếu</p> : <p className="text-comment bg-green-500 mb-6">Sắp Chiếu</p>}
                                   {ThongTinLichChieuTheoPhim.hot && <p className="text-comment bg-red-600 text-yellow-300 mb-6"><i className="fa-solid fa-fire mr-10"></i>HOT</p>}
                                   <p className="text-comment bg-gray-400"><i className="fa-regular fa-hourglass-half mr-10"></i>120 phút</p>
                                 </div>
@@ -65,7 +66,7 @@ export const CalendarTemplate = () => {
                               </div>
                               <div className="grid grid-cols-5 gap-[10px]">
                                 {
-                                  b?.lstLichChieuPhim?.map(c => {
+                                  b?.lichChieuPhim?.map(c => {
                                     return (
                                       <p key={c.maLichChieu} className="text-lichchieu" onClick={() => {
 
@@ -74,7 +75,7 @@ export const CalendarTemplate = () => {
                                           return
                                         }
 
-                                        const path = generatePath(PATH.booking, { bookingid: c.maLichChieu, movieid: ThongTinLichChieuTheoPhim.maPhim, macumrap: b.maCumRap, mahethongrap: a.maHeThongRap})
+                                        const path = generatePath(PATH.booking, { bookingid: c.maLichChieu, movieid: params.maPhim, macumrap: b.maCumRap, mahethongrap: a.maHeThongRap})
                                         navigate(path)
                                       }}>{new Date(c.ngayChieuGioChieu).getHours()} : {new Date(c.ngayChieuGioChieu).getMinutes()}</p>
                                     )

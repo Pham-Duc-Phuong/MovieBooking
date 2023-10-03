@@ -7,4 +7,3 @@ export const Booking = () => {
       <BookingTemplate />
     )
   }
-  

@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ThongTinLichChieuPhim, HeThongRapChieu, CumRapChieu, ThongTinRap } from "types";
+import { ThongTinLichChieuPhim, HeThongRapChieu, lstCumRap, lstLichChieuPhim } from "types";
 import { getLichChieuTheoPhimListThunk } from ".";
 
 type quanLyLichChieuInitialState = {
-    ThongTinLichChieuTheoPhim?: ThongTinLichChieuPhim<HeThongRapChieu<CumRapChieu<ThongTinRap[]>[]>[]>
+    ThongTinLichChieuTheoPhim?: ThongTinLichChieuPhim<HeThongRapChieu<lstCumRap<lstLichChieuPhim[]>[]>[]>
 }
 const initialState:quanLyLichChieuInitialState = {}
 
