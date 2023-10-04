@@ -8,26 +8,19 @@ import { getLichChieuListThunk } from "store/lichChieu"
 import { bookedTicket, bookedTicketList } from "types"
 import { SubmitHandler } from 'react-hook-form'
 import { toast } from "react-toastify"
-import { getLichChieuTheoPhimListThunk } from "store/lichChieuTheoPhim"
 import { Button, Skeleton } from "components"
 
 export const BookingTemplate = () => {
   const navigate = useNavigate()
-  const params = useParams()
   const dispatch = useAppDispatch()
-  const { bookingid, macumrap, mahethongrap, movieid } = params
+  const params = useParams()
+  const { bookingid } = params
   useEffect(() => {
     dispatch(getLichChieuListThunk())
     dispatch(danhSachPhongVeThunk(params))
-    dispatch(getLichChieuTheoPhimListThunk(movieid))
-  }, [dispatch, params, movieid])
+  }, [dispatch, params])
   const { booking, layDanhSachPhongVe, isFetchBooking } = useSelector((state: RootState) => state.MovieBooking)
-  const { ThongTinLichChieuHeThongRap } = useSelector((state: RootState) => state.quanLyLichChieu)
-  // Đặt vé trong Lịch Chiếu
-  const MaHeThongRap = ThongTinLichChieuHeThongRap?.find(a => a.maHeThongRap === mahethongrap)
-  const MaCumRap = MaHeThongRap?.lstCumRap?.find(b => b.maCumRap === macumrap)
-  const MovieId = MaCumRap?.danhSachPhim?.find(c => c.maPhim === Number(movieid))
-  const BookingId = MovieId?.lstLichChieuTheoPhim?.find(d => d.maLichChieu === Number(bookingid))
+  const thongTinPhim = layDanhSachPhongVe.thongTinPhim
   const GheDaDat: SubmitHandler<bookedTicketList<bookedTicket[]>> = (values) => {
     dispatch(bookingThunk(values)).unwrap().then(() => { toast.success('Đặt vé thành công'), dispatch(danhSachPhongVeThunk(params)) }).catch(() => toast.error('Đặt vé thất bại'))
   }
@@ -80,7 +73,7 @@ export const BookingTemplate = () => {
         </div>
         <div className="border rounded-lg mx-[10px] shadow-md  my-[25px]">
           <div className="flex justify-start items-start m-[10px]">
-            <img className='h-[150px] mr-[10px] rounded-6' src={MovieId?.hinhAnh} alt="" />
+            <img className='h-[150px] mr-[10px] rounded-6' src={thongTinPhim?.hinhAnh} alt="" />
             <div>
               {/* Thông tin phim chiếu */}
               <table className="text-14 w-full text-left text-gray-500 dark:text-gray-400 mb-24">
@@ -91,7 +84,7 @@ export const BookingTemplate = () => {
                       Tên phim
                     </th>
                     <td className="px-6 py-[10px]">
-                      {MovieId?.tenPhim}
+                      {thongTinPhim?.tenPhim}
                     </td>
                   </tr>
                   <tr className="bg-white border-b ">
@@ -99,7 +92,7 @@ export const BookingTemplate = () => {
                       Rạp
                     </th>
                     <td className="px-6 py-[10px]">
-                      {MaCumRap?.tenCumRap}
+                      {thongTinPhim?.tenCumRap}
                     </td>
                   </tr>
                   <tr className="bg-white border-b ">
@@ -107,7 +100,7 @@ export const BookingTemplate = () => {
                       Địa chỉ
                     </th>
                     <td className="px-6 py-[10px]">
-                      {MaCumRap?.diaChi}
+                      {thongTinPhim?.diaChi}
                     </td>
                   </tr>
                   <tr className="bg-white border-b ">
@@ -115,7 +108,7 @@ export const BookingTemplate = () => {
                       Suất
                     </th>
                     <td className="px-6 py-[10px]">
-                      <span>{new Date(BookingId?.ngayChieuGioChieu).getHours()} : {new Date(BookingId?.ngayChieuGioChieu).getMinutes()}</span>
+                      <span>{thongTinPhim?.gioChieu}</span><span className="ml-[15px]">{thongTinPhim?.ngayChieu}</span>
                     </td>
                   </tr>
                   <tr className="bg-white">
@@ -123,7 +116,7 @@ export const BookingTemplate = () => {
                       Phòng chiếu
                     </th>
                     <td className="px-6 py-[10px]">
-                      {BookingId?.tenRap}
+                      {thongTinPhim?.tenRap}
                     </td>
                   </tr>
                 </tbody>

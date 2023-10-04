@@ -75,12 +75,12 @@ export const TheaterTemplate = () => {
                                             navigate(PATH.login)
                                             return
                                           }
-                                          const path = generatePath(PATH.booking, { bookingid: d.maLichChieu, movieid: c.maPhim, macumrap: b.maCumRap, mahethongrap: a.maHeThongRap})
+                                          const path = generatePath(PATH.booking, { bookingid: d.maLichChieu })
                                           navigate(path)
                                         }}>
-                                        {new Date(d.ngayChieuGioChieu).getHours()} : {new Date(d.ngayChieuGioChieu).getMinutes()}
+                                          {new Date(d.ngayChieuGioChieu).getHours()} : {new Date(d.ngayChieuGioChieu).getMinutes()}
                                         </p>
-                                        
+
                                       ))
                                     }
                                   </div>

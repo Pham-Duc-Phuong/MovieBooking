@@ -7,7 +7,6 @@ export const bookingThunk = createAsyncThunk(
     async (payload: bookedTicketList<bookedTicket[]>, { rejectWithValue }) => {
         try {
             const data = await quanLyDatVeServices.datVe(payload)
-            console.log('data', data)
             return data.data.content;
         } catch (err) {
             return rejectWithValue(err);

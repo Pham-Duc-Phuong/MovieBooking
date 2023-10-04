@@ -7,7 +7,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { AccountSchema, AccountSchemaType } from 'schema/AccountSchema'
 import { toast } from 'react-toastify'
 import { useAppDispatch } from 'store'
-import { updateNguoiDungThunk } from 'store/quanLyNguoiDung'
+import { getUserByAccessTokenThunk, updateNguoiDungThunk } from 'store/quanLyNguoiDung'
 import { UserUpdate } from 'types'
 
 export const AccountInfo = () => {
@@ -21,19 +21,17 @@ export const AccountInfo = () => {
         reset(infoUser)
     }, [reset, infoUser])
     const setSubmit: SubmitHandler<AccountSchemaType> = (values) => {
-        console.log('values', values)
         const { email, hoTen, maLoaiNguoiDung, maNhom, matKhau, soDt, taiKhoan } = values
         const UserUpdate: UserUpdate = { email, hoTen, maLoaiNguoiDung, maNhom, matKhau, soDt, taiKhoan }
         dispatch(updateNguoiDungThunk(UserUpdate)).unwrap().then(() => {
-            toast.success('Cập nhật tài khoản thành công')
+            toast.success('Cập nhật tài khoản thành công'), dispatch(getUserByAccessTokenThunk())
         })
             .catch(() => {
                 toast.error('Vui lòng F5 để load lại trang web')
             })
     }
-
     return (
-        <form className='h-screen' onSubmit={handleSubmit(setSubmit)}>
+        <form className='h-[750px]' onSubmit={handleSubmit(setSubmit)}>
             <p className="text-20 font-600">Thông tin tài khoản</p>
             <p className="text-14 font-300 text-red-600">(* chỉ được chỉnh sửa họ tên và số điện thoại *)</p>
             <Input

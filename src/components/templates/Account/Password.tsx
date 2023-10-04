@@ -17,15 +17,15 @@ export const Password = () => {
   })
   const setSubmit: SubmitHandler<PasswordSchemaType> = (values) => {
     const { matKhau, matKhauChanged1, matKhauChanged2 } = values
-    if (matKhau === infoUser.matKhau) {
+    if (matKhau === infoUser?.matKhau) {
       if (matKhauChanged1 === matKhauChanged2) {
         const infoUserDaDoiMatKhau = { ...infoUser, matKhau: matKhauChanged1 }
-        dispatch(updateNguoiDungThunk(infoUserDaDoiMatKhau)).unwrap().then(() => toast.success('Đổi mật khấu thành công')).catch(() => {toast.error('Vui lòng F5 để load lại trang web') })
+        dispatch(updateNguoiDungThunk(infoUserDaDoiMatKhau)).unwrap().then(() => {toast.success('Đổi mật khấu thành công')}).catch(() => {toast.error('Vui lòng F5 để load lại trang web') })
       }
     }
   }
   return (
-    <form className="h-screen" onSubmit={handleSubmit(setSubmit)}>
+    <form className="h-[750px]" onSubmit={handleSubmit(setSubmit)}>
       <Input
         className="h-[90px] [&>label]:!text-black [&>input]:bg-transparent [&>input]:border [&>input]:border-black [&>input]:!text-black"
         label="Mật khẩu hiện tại"

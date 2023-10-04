@@ -75,7 +75,7 @@ export const CalendarTemplate = () => {
                                           return
                                         }
 
-                                        const path = generatePath(PATH.booking, { bookingid: c.maLichChieu, movieid: params.maPhim, macumrap: b.maCumRap, mahethongrap: a.maHeThongRap})
+                                        const path = generatePath(PATH.booking, { bookingid: c.maLichChieu })
                                         navigate(path)
                                       }}>{new Date(c.ngayChieuGioChieu).getHours()} : {new Date(c.ngayChieuGioChieu).getMinutes()}</p>
                                     )
