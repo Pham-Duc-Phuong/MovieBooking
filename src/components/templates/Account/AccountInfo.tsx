@@ -19,12 +19,13 @@ export const AccountInfo = () => {
     })
     useEffect(() => {
         reset(infoUser)
-    }, [reset, infoUser])
+        dispatch(getUserByAccessTokenThunk())
+    }, [reset, infoUser, dispatch])
     const setSubmit: SubmitHandler<AccountSchemaType> = (values) => {
         const { email, hoTen, maLoaiNguoiDung, maNhom, matKhau, soDt, taiKhoan } = values
         const UserUpdate: UserUpdate = { email, hoTen, maLoaiNguoiDung, maNhom, matKhau, soDt, taiKhoan }
         dispatch(updateNguoiDungThunk(UserUpdate)).unwrap().then(() => {
-            toast.success('Cập nhật tài khoản thành công'), dispatch(getUserByAccessTokenThunk())
+            toast.success('Cập nhật tài khoản thành công')
         })
             .catch(() => {
                 toast.error('Vui lòng F5 để load lại trang web')

@@ -1,11 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button, Input } from "components"
 import { useAuth } from "hooks"
+import { useEffect } from "react"
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { toast } from "react-toastify"
 import { PasswordSchema, PasswordSchemaType } from "schema/PasswordSchema"
 import { useAppDispatch } from "store"
-import { updateNguoiDungThunk } from "store/quanLyNguoiDung"
+import { getUserByAccessTokenThunk, updateNguoiDungThunk } from "store/quanLyNguoiDung"
 
 
 export const Password = () => {
@@ -15,6 +16,9 @@ export const Password = () => {
     mode: "onChange",
     resolver: zodResolver(PasswordSchema)
   })
+  useEffect(() => {
+    dispatch(getUserByAccessTokenThunk())
+  },[dispatch])
   const setSubmit: SubmitHandler<PasswordSchemaType> = (values) => {
     const { matKhau, matKhauChanged1, matKhauChanged2 } = values
     if (matKhau === infoUser?.matKhau) {
