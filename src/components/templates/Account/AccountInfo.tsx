@@ -27,7 +27,7 @@ export const AccountInfo = () => {
         const { email, hoTen, maLoaiNguoiDung, maNhom, matKhau, soDt, taiKhoan } = values
         const UserUpdate: UserUpdate = { email, hoTen, maLoaiNguoiDung, maNhom, matKhau, soDt, taiKhoan }
         dispatch(updateNguoiDungThunk(UserUpdate)).unwrap().then(() => {
-            dispatch(getUserByAccessTokenThunk()), toast.success('Cập nhật tài khoản thành công'), toast.error('Xin vui lòng chờ 10 giây để hệ thống cập nhật lại thông tin trong quá trình này quý khách không nên ấn "Cập nhật"', { autoClose: 10000 })
+            dispatch(getUserByAccessTokenThunk()), toast.success('Cập nhật tài khoản thành công'), toast.error('Xin vui lòng chờ 10 giây để hệ thống cập nhật lại thông tin', { autoClose: 10000 }), toast.error('trong quá trình này quý khách không nên ấn "Cập nhật"', { autoClose: 10000 })
         })
             .catch(() => {
                 toast.error('Vui lòng F5 để load lại trang web')
