@@ -11,6 +11,9 @@ import { getUserByAccessTokenThunk, updateNguoiDungThunk } from 'store/quanLyNgu
 import { UserUpdate } from 'types'
 
 export const AccountInfo = () => {
+    useEffect(() => {
+        toast.info('Thông tin tài khoản đang được load...', { position: 'top-center', autoClose: 10000 })
+    }, [])
     const { infoUser } = useAuth()
     const dispatch = useAppDispatch()
     const { handleSubmit, reset, register, formState: { errors } } = useForm<AccountSchemaType>({
@@ -19,13 +22,12 @@ export const AccountInfo = () => {
     })
     useEffect(() => {
         reset(infoUser)
-        dispatch(getUserByAccessTokenThunk())
-    }, [reset, infoUser, dispatch])
+    }, [reset, infoUser])
     const setSubmit: SubmitHandler<AccountSchemaType> = (values) => {
         const { email, hoTen, maLoaiNguoiDung, maNhom, matKhau, soDt, taiKhoan } = values
         const UserUpdate: UserUpdate = { email, hoTen, maLoaiNguoiDung, maNhom, matKhau, soDt, taiKhoan }
         dispatch(updateNguoiDungThunk(UserUpdate)).unwrap().then(() => {
-            toast.success('Cập nhật tài khoản thành công'), toast.success('Chờ 30s để hệ thống update')
+            dispatch(getUserByAccessTokenThunk()), toast.success('Cập nhật tài khoản thành công'), toast.error('Xin vui lòng chờ 10 giây để hệ thống cập nhật lại thông tin trong quá trình này quý khách không nên ấn "Cập nhật"', { autoClose: 10000 })
         })
             .catch(() => {
                 toast.error('Vui lòng F5 để load lại trang web')
@@ -86,7 +88,7 @@ export const AccountInfo = () => {
             />
             <div className="text-right mt-20">
                 <Button htmlType="submit" type="primary" className="!h-[46px]">
-                    Hoàn thành chỉnh sửa
+                    Cập nhật
                 </Button>
             </div>
         </form>
