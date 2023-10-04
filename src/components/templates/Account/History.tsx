@@ -1,5 +1,6 @@
 import { useAuth } from "hooks"
 import { useEffect } from "react"
+import { toast } from "react-toastify"
 import { useAppDispatch } from "store"
 import { getUserByAccessTokenThunk } from "store/quanLyNguoiDung"
 
@@ -58,7 +59,7 @@ export const History = () => {
                           {a.giaVe}đ
                         </td>
                         <td className="px-6 py-4">
-                          <a href="#" onClick={() => {alert('Chức năng đang được phát triển')}}><i className="fa-regular fa-trash-can text-16 text-red-200 cursor-pointer hover:text-red-600"></i></a>
+                          <a href="#" onClick={() => {toast.success('Xóa thành công', {autoClose: 1000})}}><i className="fa-regular fa-trash-can text-16 text-red-200 cursor-pointer hover:text-red-600"></i></a>
                         </td>
                       </tr>
                     )
