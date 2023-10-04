@@ -24,7 +24,7 @@ export const Password = () => {
     if (matKhau === infoUser?.matKhau) {
       if (matKhauChanged1 === matKhauChanged2) {
         const infoUserDaDoiMatKhau = { ...infoUser, matKhau: matKhauChanged1 }
-        dispatch(updateNguoiDungThunk(infoUserDaDoiMatKhau)).unwrap().then(() => {toast.success('Đổi mật khấu thành công')}).catch(() => {toast.error('Vui lòng F5 để load lại trang web') })
+        dispatch(updateNguoiDungThunk(infoUserDaDoiMatKhau)).unwrap().then(() => {toast.success('Đổi mật khấu thành công'), toast.success('Chờ 30s để hệ thống update')}).catch(() => {toast.error('Vui lòng F5 để load lại trang web') })
       }
     }
   }

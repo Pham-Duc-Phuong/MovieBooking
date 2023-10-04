@@ -25,7 +25,7 @@ export const AccountInfo = () => {
         const { email, hoTen, maLoaiNguoiDung, maNhom, matKhau, soDt, taiKhoan } = values
         const UserUpdate: UserUpdate = { email, hoTen, maLoaiNguoiDung, maNhom, matKhau, soDt, taiKhoan }
         dispatch(updateNguoiDungThunk(UserUpdate)).unwrap().then(() => {
-            toast.success('Cập nhật tài khoản thành công')
+            toast.success('Cập nhật tài khoản thành công'), toast.success('Chờ 30s để hệ thống update')
         })
             .catch(() => {
                 toast.error('Vui lòng F5 để load lại trang web')

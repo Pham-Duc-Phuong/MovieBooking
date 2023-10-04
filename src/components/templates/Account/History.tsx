@@ -9,7 +9,6 @@ export const History = () => {
     dispatch(getUserByAccessTokenThunk())
   }, [dispatch])
   const { UserThongTinDatVe } = useAuth()
-  console.log('UserThongTinDatVe', UserThongTinDatVe)
   return (
     <div>
       <div className="relative overflow-auto shadow-md sm:rounded-lg h-[750px] ">
