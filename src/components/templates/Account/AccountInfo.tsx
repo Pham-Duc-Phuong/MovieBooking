@@ -11,9 +11,9 @@ import { getUserByAccessTokenThunk, updateNguoiDungThunk } from 'store/quanLyNgu
 import { UserUpdate } from 'types'
 
 export const AccountInfo = () => {
-    useEffect(() => {
-        toast.info('Thông tin tài khoản đang được load...', { position: 'top-center', autoClose: 10000 })
-    }, [])
+    // useEffect(() => {
+    //     toast.info('Thông tin tài khoản đang được load...', { position: 'top-center', autoClose: 10000 })
+    // }, [])
     const { infoUser } = useAuth()
     const dispatch = useAppDispatch()
     const { handleSubmit, reset, register, formState: { errors } } = useForm<AccountSchemaType>({
