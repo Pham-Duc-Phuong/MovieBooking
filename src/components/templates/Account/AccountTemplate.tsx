@@ -6,7 +6,7 @@ export const AccountTemplate = () => {
     return (
         <div>
             <Tabs
-                tabPosition="left"
+                tabPosition="top"
                 items={[
                     {
                         key: 'accountInfo',
