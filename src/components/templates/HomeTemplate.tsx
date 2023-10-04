@@ -74,7 +74,6 @@ export const HomeTemplate = () => {
                                     onClick={() => {
                                         const path = generatePath(PATH.detail, { movieid: movie.maPhim })
                                         navigate(path)
-                                        console.log('path', path)
                                     }}
                                 >Chi tiết</Button>
                                 {/* <Button className='btn-booking'>Mua vé</Button> */}

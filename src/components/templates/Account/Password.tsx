@@ -25,9 +25,10 @@ export const Password = () => {
       if (matKhauChanged1 === matKhauChanged2) {
         const infoUserDaDoiMatKhau = { ...infoUser, matKhau: matKhauChanged1 }
         dispatch(updateNguoiDungThunk(infoUserDaDoiMatKhau)).unwrap().then(() => {
-          dispatch(getUserByAccessTokenThunk()), toast.success('Đổi mật khấu thành công'),
-            toast.error('Xin vui lòng chờ 10 giây để hệ thống cập nhật lại thông tin', { autoClose: 10000 }),
-            toast.error("Trong quá trình này quý khách không nên ấn 'Cập nhật'", { autoClose: 10000 })
+          dispatch(getUserByAccessTokenThunk()),
+            toast.success('Đổi mật khấu thành công')
+            // ,toast.error('Xin vui lòng chờ 10 giây để hệ thống cập nhật lại thông tin', { autoClose: 10000 }),
+            // toast.error("Trong quá trình này quý khách không nên ấn 'Cập nhật'", { autoClose: 10000 })
         })
           .catch(() => { toast.error('Vui lòng F5 để load lại trang web') })
       }
