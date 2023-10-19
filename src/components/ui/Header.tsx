@@ -43,24 +43,23 @@ export const Header = () => {
                     <span className="text-[var(--primary-color)]">CYBER</span>MOVIE
                 </h1>
                 <div className="flex items-center md:!gap-[60px] sm:!gap-[30px] phone:!gap-[10px]">
-                    <nav className='md:gap-[60px] md:!text-[16px] sm:!text-[13px] sm:!gap-[30px] phone:!text-[9px] phone:!gap-[8px] '>
+                    <nav className='md:gap-[60px] md:!text-[16px] sm:!text-[13px] sm:!gap-[30px] phone:!text-[8px] phone:!gap-[8px] '>
+                        <NavLink to="/">TRANG CHỦ</NavLink>
                         <NavLink to={PATH.theater}>LỊCH CHIẾU</NavLink>
-                        <NavLink to="/">PHIM</NavLink>
-                        <NavLink to="">TIN TỨC</NavLink>
                     </nav>
                     <div>
                         {!accessToken && (
                             <p className="flex items-center font-600">
-                                <i className="fa-solid fa-user md:!text-[20px] sm:!text-[13px] phone:!text-[10px]"></i>
+                                <i className="fa-solid fa-user md:!text-[20px] sm:!text-[13px] phone:!text-[9px]"></i>
                                 <span
-                                    className="ml-10 cursor-pointer hover:text-[var(--primary-color)] md:!text-[20px] sm:!text-[13px] phone:!text-[10px]"
+                                    className="ml-10 cursor-pointer hover:text-[var(--primary-color)] md:!text-[20px] sm:!text-[13px] phone:!text-[8px]"
                                     onClick={() => navigate(PATH.login)}
                                 >
                                     Đăng nhập
                                 </span>
-                                <span className="inline-block h-[24px] w-[2px] bg-black mx-6"></span>
+                                <span className="inline-block h-[24px] w-[2px] bg-black mx-6">|</span>
                                 <span
-                                    className="cursor-pointer hover:text-[var(--primary-color)] md:!text-[20px] sm:!text-[13px] phone:!text-[10px]"
+                                    className="cursor-pointer hover:text-[var(--primary-color)] md:!text-[20px] sm:!text-[13px] phone:!text-[8px]"
                                     onClick={() => navigate(PATH.register)}
                                 >
                                     Đăng ký
