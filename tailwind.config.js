@@ -46,7 +46,7 @@ export default {
             'booking': 'auto 500px'
           },
           screens:{
-            'phone': '483px'
+            'phone': '280px'
           }
       },
   },

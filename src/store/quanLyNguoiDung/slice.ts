@@ -38,7 +38,6 @@ const quanLyNguoiDungSlice = createSlice({
                 state.isFetchingLogin = false
             })
             .addCase(loginThunk.fulfilled, (state, { payload }) => {
-                console.log('payload loginThunk', payload)
                 // lưu accessToken xuống localstorage
                 localStorage.setItem('ACCESSTOKEN', payload.accessToken)
                 state.accessToken = payload.accessToken

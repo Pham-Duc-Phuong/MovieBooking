@@ -36,14 +36,14 @@ export const Header = () => {
             })}
         >
             <div className="header-content ">
-                <h1 className="brand phone:!text-[20px] md:!text-[35px] sm:!text-[25px]"
+                <h1 className="brand phone:!text-[15px] md:!text-[35px] sm:!text-[25px]"
                     onClick={() => {
                         navigate('/')
                     }}>
                     <span className="text-[var(--primary-color)]">CYBER</span>MOVIE
                 </h1>
                 <div className="flex items-center md:!gap-[60px] sm:!gap-[30px] phone:!gap-[10px]">
-                    <nav className='md:gap-[60px] md:!text-[16px] sm:!text-[13px] sm:!gap-[30px] phone:!text-[10px] phone:!gap-[10px] '>
+                    <nav className='md:gap-[60px] md:!text-[16px] sm:!text-[13px] sm:!gap-[30px] phone:!text-[9px] phone:!gap-[8px] '>
                         <NavLink to={PATH.theater}>LỊCH CHIẾU</NavLink>
                         <NavLink to="/">PHIM</NavLink>
                         <NavLink to="">TIN TỨC</NavLink>
