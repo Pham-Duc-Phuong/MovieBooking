@@ -19,7 +19,7 @@ export const HomeTemplate = () => {
     const movieSearch = movieList?.filter(a => a.tenPhim.toLowerCase().includes(queryParams?.name?.toLowerCase()))
     if (isFetchingMovieList) {
         return (
-            <div className="grid grid-cols-4">
+            <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-col-1">
                 {[...Array(12)].map((_, index) => {
 
                     return (

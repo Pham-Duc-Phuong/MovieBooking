@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HTMLInputTypeAttribute } from 'react'
 import { UseFormRegister } from 'react-hook-form'
+import cn from 'classnames'
 
 //rafc
 type InputProps = {
@@ -12,6 +13,8 @@ type InputProps = {
     placeholder?: string
     className?: string
     name?: string
+    height?: boolean
+    colorLabelBlack?: boolean
 }
 
 export const Input = ({
@@ -23,11 +26,13 @@ export const Input = ({
     placeholder,
     className = '',
     name,
+    height = true,
+    colorLabelBlack = true
 }: InputProps) => {
     return (
-        <div className={className}>
+        <div className={cn({ className }, { 'h-[80px]': height = true })}>
             {!!label && (
-                <label className="text-white" htmlFor={id}>
+                <label className={cn("text-white")} htmlFor={id}>
                     {label}
                 </label>
             )}
@@ -35,10 +40,13 @@ export const Input = ({
                 id={id}
                 placeholder={placeholder}
                 type={type}
-                className="p-10 mt-8 w-full text-white rounded-6 bg-[#333]"
+                className="mt-8 w-full text-white rounded-6 bg-[#333]"
                 {...register?.(name)}
             />
-            {!!error && <p className="text-red-500 text-14">{error}</p>}
+            <div className='flex justify-end'>
+                {!!error && <p className="text-red-500 text-14">{error}</p>}
+            </div>
+
         </div>
     )
 }

@@ -6,7 +6,7 @@ export const MainLayout = () => {
     return (
         <main>
             <Header />
-            <MainWrapper id="main-content">
+            <MainWrapper id="main-content" className=''>
                 <Outlet />
             </MainWrapper>
             <Footer />

@@ -36,14 +36,14 @@ export const Header = () => {
             })}
         >
             <div className="header-content ">
-                <h1 className="brand phone:!text-[12px] md:!text-[35px] sm:!text-[25px]"
+                <h1 className="brand phone:!text-[13px] md:!text-[35px] sm:!text-[25px]"
                     onClick={() => {
                         navigate('/')
                     }}>
                     <span className="text-[var(--primary-color)]">CYBER</span>MOVIE
                 </h1>
-                <div className="flex items-center md:!gap-[60px] sm:!gap-[30px] phone:!gap-[10px]">
-                    <nav className='md:gap-[60px] md:!text-[16px] sm:!text-[13px] sm:!gap-[30px] phone:!text-[8px] phone:!gap-[8px] '>
+                <div className="flex items-center md:!gap-[60px] sm:!gap-[30px] phone:!gap-[5px]">
+                    <nav className='md:gap-[60px] md:!text-[16px] sm:!text-[13px] sm:!gap-[30px] phone:!text-[8px] phone:!gap-[5px] '>
                         <NavLink to="/">TRANG CHỦ</NavLink>
                         <NavLink to={PATH.theater}>LỊCH CHIẾU</NavLink>
                     </nav>
@@ -56,7 +56,7 @@ export const Header = () => {
                                 >
                                     Đăng nhập
                                 </span>
-                                <span className="inline-block mx-6 md:!text-[20px] sm:!text-[13px] phone:!text-[8px]">|</span>
+                                <span className="inline-block mx-6 md:!text-[20px] sm:!text-[13px] phone:!text-[8px] font-100">|</span>
                                 <span
                                     className="cursor-pointer hover:text-[var(--primary-color)] md:!text-[20px] sm:!text-[13px] phone:!text-[8px]"
                                     onClick={() => navigate(PATH.register)}
