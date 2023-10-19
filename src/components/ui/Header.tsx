@@ -36,7 +36,7 @@ export const Header = () => {
             })}
         >
             <div className="header-content ">
-                <h1 className="brand phone:!text-[15px] md:!text-[35px] sm:!text-[25px]"
+                <h1 className="brand phone:!text-[12px] md:!text-[35px] sm:!text-[25px]"
                     onClick={() => {
                         navigate('/')
                     }}>
@@ -50,14 +50,13 @@ export const Header = () => {
                     <div>
                         {!accessToken && (
                             <p className="flex items-center font-600">
-                                <i className="fa-solid fa-user md:!text-[20px] sm:!text-[13px] phone:!text-[9px]"></i>
                                 <span
-                                    className="ml-10 cursor-pointer hover:text-[var(--primary-color)] md:!text-[20px] sm:!text-[13px] phone:!text-[8px]"
+                                    className="cursor-pointer hover:text-[var(--primary-color)] md:!text-[20px] sm:!text-[13px] phone:!text-[8px]"
                                     onClick={() => navigate(PATH.login)}
                                 >
                                     Đăng nhập
                                 </span>
-                                <span className="inline-block h-[24px] w-[2px] bg-black mx-6">|</span>
+                                <span className="inline-block mx-6 md:!text-[20px] sm:!text-[13px] phone:!text-[8px]">|</span>
                                 <span
                                     className="cursor-pointer hover:text-[var(--primary-color)] md:!text-[20px] sm:!text-[13px] phone:!text-[8px]"
                                     onClick={() => navigate(PATH.register)}
