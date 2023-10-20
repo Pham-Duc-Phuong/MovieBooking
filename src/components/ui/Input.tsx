@@ -14,7 +14,6 @@ type InputProps = {
     className?: string
     name?: string
     height?: boolean
-    colorLabelBlack?: boolean
 }
 
 export const Input = ({
@@ -26,13 +25,12 @@ export const Input = ({
     placeholder,
     className = '',
     name,
-    height = true,
-    colorLabelBlack = true
+    height = true
 }: InputProps) => {
     return (
         <div className={cn({ className }, { 'h-[80px]': height = true })}>
             {!!label && (
-                <label className={cn("text-white")} htmlFor={id}>
+                <label className="text-white" htmlFor={id}>
                     {label}
                 </label>
             )}
